@@ -46,13 +46,32 @@ namespace DielectricConversion.Tests
         {
             //Arrange
             var InputList = new List<string>();
-            int expected = 0;  
+            int expected = 0;
 
             //Act
             var actual = ProcessMacro.FindTaskSplits(InputList);
 
             //Assert
             Assert.AreEqual(actual.Count, expected);
+        }
+
+        [TestMethod()]
+        public void SplitTasksTest()
+        {
+            var taskSplits = new List<int>
+            {
+                5,10
+            };
+            var taskLength = 3;
+            var rawData = new List<string>
+            {
+                "0","1","2","3","4","5","6","7","8","9","10","11","12","13"
+            };
+            var taskList = Enumerable.Range(0, taskSplits.Count)
+                .Select(index => rawData.GetRange(taskSplits[index], taskLength))
+                .ToList();
+
+            Assert.AreEqual(0, 1);
         }
     }
 }

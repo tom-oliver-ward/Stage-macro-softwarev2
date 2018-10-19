@@ -29,7 +29,9 @@ namespace DielectricConversion
                 .Select(index => rawData.GetRange(taskSplits[index], taskLength))
                 .ToList();
 
-            return taskList;
+            //return taskList;
+            var Empty = new List<string>();
+            return Empty;
         }
 
         //public static IList<string> SplitTasks(IList<string> rawData, IList<int> taskSplits)
