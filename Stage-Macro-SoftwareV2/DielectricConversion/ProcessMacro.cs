@@ -9,7 +9,7 @@ namespace DielectricConversion
     public class ProcessMacro
     {
         //variables to be placed elsewhere
-
+        readonly static int taskLength = 190;
         readonly static string taskSplitString = "<Name>Task Number</Name>";
 
         public static IList<int> FindTaskSplits(IList<string> rawData)
@@ -21,43 +21,31 @@ namespace DielectricConversion
             return result;
         }
 
-        //public static IList<string> FindTaskSplits(List<string> rawData)
-        //{
-        //    List<string> taskSplits = rawData.FindAll(t => t.Equals(taskSplitString));
-        //    return taskSplits;
-        //}
 
-        //public static IList<int> FindTaskSplits(IList<string> rawData)
-        //{
-        //    var taskSplits = new List<int>();
-        //    for (int i = 0; i < rawData.Count; i++)
-        //    {
-        //        var pos = rawData[i].IndexOf(taskSplitString);
+        public static List<string> SplitTasks(List<string> rawData, List<int> taskSplits)
+        {
 
-        //        if (pos > 0)
-        //        {
-        //            taskSplits.Add(i);
-        //            pos = 0;
-        //        }
-        //    }
-        //    return taskSplits;
-        //}
+            var taskList = Enumerable.Range(0, taskSplits.Count)
+                .Select(index => rawData.GetRange(taskSplits[index], taskLength))
+                .ToList();
 
-
-        public static IList<string> SplitTasks(IList<string> rawData, IList<int> taskSplits)
-        {            
-            var rawDataList = new List<string>(rawData);
-            var taskList = new List<string>();
-
-            int taskLength = FindTaskLength(taskSplits, rawData.Count);
-            for (int i = 0; i < taskSplits.Count; i++)
-            {
-                var task = (rawDataList.GetRange(taskSplits[i], taskLength - 3));
-                var taskString = string.Join("\n", task);
-                taskList.Add(taskString);
-            }
             return taskList;
         }
+
+        //public static IList<string> SplitTasks(IList<string> rawData, IList<int> taskSplits)
+        //{            
+        //    var rawDataList = new List<string>(rawData);
+        //    var taskList = new List<string>();
+
+        //    int taskLength = FindTaskLength(taskSplits, rawData.Count);
+        //    for (int i = 0; i < taskSplits.Count; i++)
+        //    {
+        //        var task = (rawDataList.GetRange(taskSplits[i], taskLength - 3));
+        //        var taskString = string.Join("\n", task);
+        //        taskList.Add(taskString);
+        //    }
+        //    return taskList;
+        //}
 
         public static int FindTaskLength(IList<int> commandSplits, int totalLength)
         {

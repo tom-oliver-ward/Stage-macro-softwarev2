@@ -5,3 +5,7 @@ C:\Users\twar313\Documents\GitHub\Stage-macro-softwarev2\Stage-Macro-SoftwareV2\
 C:\Users\twar313\Documents\GitHub\Stage-macro-softwarev2\Stage-Macro-SoftwareV2\DielectricConversion\bin\Debug\DielectricConversion.pdb
 C:\Users\twar313\Documents\GitHub\Stage-macro-softwarev2\Stage-Macro-SoftwareV2\DielectricConversion\obj\Debug\DielectricConversion.dll
 C:\Users\twar313\Documents\GitHub\Stage-macro-softwarev2\Stage-Macro-SoftwareV2\DielectricConversion\obj\Debug\DielectricConversion.pdb
+C:\Users\tom2s\Documents\GitHub\Stage-macro-softwarev2\Stage-Macro-SoftwareV2\DielectricConversion\obj\Debug\DielectricConversion.csprojAssemblyReference.cache
+C:\Users\tom2s\Documents\GitHub\Stage-macro-softwarev2\Stage-Macro-SoftwareV2\DielectricConversion\obj\Debug\DielectricConversion.csproj.CoreCompileInputs.cache
+C:\Users\tom2s\Documents\GitHub\Stage-macro-softwarev2\Stage-Macro-SoftwareV2\DielectricConversion\obj\Debug\DielectricConversion.dll
+C:\Users\tom2s\Documents\GitHub\Stage-macro-softwarev2\Stage-Macro-SoftwareV2\DielectricConversion\obj\Debug\DielectricConversion.pdb
