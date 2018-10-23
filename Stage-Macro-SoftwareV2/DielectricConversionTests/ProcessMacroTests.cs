@@ -35,7 +35,7 @@ namespace DielectricConversion.Tests
             };
 
             //Act
-            IList<int> actual = ProcessMacro.FindTaskSplits(InputList);
+            IList<int> actual = ProcessMacro.TaskSplits(InputList);
 
             //Assert
             Assert.AreEqual(actual[0], expectedOutput[0]);
@@ -49,29 +49,55 @@ namespace DielectricConversion.Tests
             int expected = 0;
 
             //Act
-            var actual = ProcessMacro.FindTaskSplits(InputList);
+            var actual = ProcessMacro.TaskSplits(InputList);
 
             //Assert
             Assert.AreEqual(actual.Count, expected);
         }
 
+
+
+
         [TestMethod()]
         public void SplitTasksTest()
-        {
+        {   //Arrange
             var taskSplits = new List<int>
             {
-                5,10
-            };
-            var taskLength = 3;
+                1,6
+            };            
             var rawData = new List<string>
             {
-                "0","1","2","3","4","5","6","7","8","9","10","11","12","13"
+                "0","1","2","3","4","5","6","7","8","9","10"
             };
-            var taskList = Enumerable.Range(0, taskSplits.Count)
-                .Select(index => rawData.GetRange(taskSplits[index], taskLength))
-                .ToList();
+            string expected = "1\n2";
 
-            Assert.AreEqual(0, 1);
+
+            //Act
+            var actual = ProcessMacro.SplitTasks(rawData, taskSplits);
+
+            //Assert
+            Assert.AreEqual(actual[0], expected);            
+        }
+
+        [TestMethod()]
+        public void SplitTasksNoTasksTest()
+        {   //Arrange
+            var taskSplits = new List<int>
+            {
+                1,6
+            };
+            var rawData = new List<string>
+            {
+                
+            };
+            string expected = "1\n2";
+
+
+            //Act
+            var actual = ProcessMacro.SplitTasks(rawData, taskSplits);
+
+            //Assert
+            Assert.AreEqual(actual[0], expected);
         }
     }
 }

@@ -1,0 +1,6 @@
+C:\Users\twar313\Documents\GitHub\Stage-macro-softwarev2\Stage-Macro-SoftwareV2\Stage-Macro.Common\bin\Debug\Stage-Macro.Common.dll
+C:\Users\twar313\Documents\GitHub\Stage-macro-softwarev2\Stage-Macro-SoftwareV2\Stage-Macro.Common\bin\Debug\Stage-Macro.Common.pdb
+C:\Users\twar313\Documents\GitHub\Stage-macro-softwarev2\Stage-Macro-SoftwareV2\Stage-Macro.Common\obj\Debug\Stage-Macro.Common.csprojAssemblyReference.cache
+C:\Users\twar313\Documents\GitHub\Stage-macro-softwarev2\Stage-Macro-SoftwareV2\Stage-Macro.Common\obj\Debug\Stage-Macro.Common.csproj.CoreCompileInputs.cache
+C:\Users\twar313\Documents\GitHub\Stage-macro-softwarev2\Stage-Macro-SoftwareV2\Stage-Macro.Common\obj\Debug\Stage-Macro.Common.dll
+C:\Users\twar313\Documents\GitHub\Stage-macro-softwarev2\Stage-Macro-SoftwareV2\Stage-Macro.Common\obj\Debug\Stage-Macro.Common.pdb
