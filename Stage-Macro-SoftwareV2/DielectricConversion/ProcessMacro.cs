@@ -15,10 +15,10 @@ namespace DielectricConversion
         public static IEnumerable<string> ConvertMacro (IEnumerable<string> rawData)
         {
             List<string> rawDataList = rawData.ToList();
-            return SplitTasks(rawDataList, TaskSplits(rawDataList));
+            return SplitTasks(rawDataList, FindTaskSplits(rawDataList));
         }
 
-        public static List<int> TaskSplits(IEnumerable<string> rawData)
+        public static List<int> FindTaskSplits(IEnumerable<string> rawData)
         {
             List<string> rawDataList = rawData.ToList();
 

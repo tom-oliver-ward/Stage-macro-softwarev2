@@ -35,7 +35,7 @@ namespace DielectricConversion.Tests
             };
 
             //Act
-            IList<int> actual = ProcessMacro.TaskSplits(InputList);
+            IList<int> actual = ProcessMacro.FindTaskSplits(InputList);
 
             //Assert
             Assert.AreEqual(actual[0], expectedOutput[0]);
@@ -49,7 +49,7 @@ namespace DielectricConversion.Tests
             int expected = 0;
 
             //Act
-            var actual = ProcessMacro.TaskSplits(InputList);
+            var actual = ProcessMacro.FindTaskSplits(InputList);
 
             //Assert
             Assert.AreEqual(actual.Count, expected);
