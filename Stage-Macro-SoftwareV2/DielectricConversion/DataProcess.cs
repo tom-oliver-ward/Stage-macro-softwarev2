@@ -7,19 +7,20 @@ using System.Threading.Tasks;
 
 namespace DielectricConversion
 {
-    public class DataProcess : IDataImported
+    public class DataProcess : DataImported
     {
-        public IEnumerable<string> RawData { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public IEnumerable<string> TaskSplits { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public IEnumerable<string> Tasks { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int taskLength { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public IEnumerable<int> FindTaskSplits(IEnumerable<string> rawData)
+        public DataProcess()
+        {
+
+        }
+
+        public override IEnumerable<int> FindTaskSplits(IEnumerable<string> rawData)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<string> SplitTasks(List<string> rawData, List<int> taskSplits)
+        public override IEnumerable<string> SplitTasks(List<string> rawData, List<int> taskSplits)
         {
             throw new NotImplementedException();
         }

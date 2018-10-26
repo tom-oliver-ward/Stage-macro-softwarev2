@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace Stage_Macro.Common
 {
-    public interface IDataImported
+    abstract public class DataImported
     {
         IEnumerable<string> RawData { get; set; }
         IEnumerable<string> TaskSplits { get; set; }
         IEnumerable<string> Tasks { get; set; }
         int taskLength { get; set; }
+        string taskSplitString { get;}
 
-        IEnumerable<int> FindTaskSplits(IEnumerable<string> rawData);
-        IEnumerable<string> SplitTasks(List<string> rawData, List<int> taskSplits)
+        public abstract IEnumerable<int> FindTaskSplits(IEnumerable<string> rawData);
+        public abstract IEnumerable<string> SplitTasks(List<string> rawData, List<int> taskSplits);
 
     }
 }
