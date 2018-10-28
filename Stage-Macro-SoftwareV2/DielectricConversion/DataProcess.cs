@@ -8,21 +8,34 @@ using System.Threading.Tasks;
 namespace DielectricConversion
 {
     public class DataProcess : DataImported
-    {
+    {                
+        IEnumerable<string> Tasks { get; set; }
+        readonly static string taskSplitString = "<Name>Task Number</Name>";
+        List<string> rawDataList { get; set; }
 
-        public DataProcess()
+        public DataProcess(IEnumerable<string> rawData)
         {
-
+            rawDataList = rawData.ToList();
         }
 
-        public override IEnumerable<int> FindTaskSplits(IEnumerable<string> rawData)
+        public override List<string> SplitTasks(List<string> rawData, List<int> taskSplits)
         {
-            throw new NotImplementedException();
+            var taskList = new List<string>();
+
+            foreach (int split in taskSplits)
+            {
+                string taskString = BasicOperations.Task2String(rawData, taskSplits, split);
+                taskList.Add(taskString);
+            }
+            return taskList;
         }
 
-        public override IEnumerable<string> SplitTasks(List<string> rawData, List<int> taskSplits)
+        public override List<int> FindTaskSplits(List<string> rawData)
         {
-            throw new NotImplementedException();
+            var result = Enumerable.Range(0, rawData.Count)
+                .Where(i => rawData[i] == taskSplitString)
+                .ToList();
+            return result;
         }
     }
 }

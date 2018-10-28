@@ -7,13 +7,12 @@ using Stage_Macro.Common;
 
 namespace DielectricConversion
 {
-    public class ProcessMacro
-    {
-        //variables to be placed elsewhere
-        readonly static string taskSplitString = "<Name>Task Number</Name>";
+    public class ProcessMacro    {
 
+        readonly static string taskSplitString = "<Name>Task Number</Name>";
         public static IEnumerable<string> ConvertMacro (IEnumerable<string> rawData)
         {
+            
             List<string> rawDataList = rawData.ToList();
             return SplitTasks(rawDataList, FindTaskSplits(rawDataList));
         }

@@ -7,15 +7,18 @@ using System.Threading.Tasks;
 namespace Stage_Macro.Common
 {
     abstract public class DataImported
-    {
-        IEnumerable<string> RawData { get; set; }
-        IEnumerable<string> TaskSplits { get; set; }
-        IEnumerable<string> Tasks { get; set; }
-        int taskLength { get; set; }
-        string taskSplitString { get;}
+    {           
+        List<string> Tasks { get; set; }        
+        
+        public abstract List<int> FindTaskSplits(List<string> rawData);
+        public abstract List<string> SplitTasks(List<string> rawData, List<int> taskSplits);
 
-        public abstract IEnumerable<int> FindTaskSplits(IEnumerable<string> rawData);
-        public abstract IEnumerable<string> SplitTasks(List<string> rawData, List<int> taskSplits);
+        public List<string> Process(List<string> rawData)
+        {            
+            List<int> TaskSplits = FindTaskSplits(rawData);
+            Tasks = SplitTasks(rawData,TaskSplits);
+            return Tasks;
+        }
 
     }
 }
