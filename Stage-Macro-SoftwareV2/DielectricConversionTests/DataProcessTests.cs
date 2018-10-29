@@ -11,7 +11,7 @@ namespace DielectricConversion.Tests
     [TestClass()]
     public class DataProcessTests
     {
-        public static List<string> InputList = new List<string>
+        public readonly static List<string> InputList = new List<string>
             {
                 "Move relative (APT Y)",
                 "<!--The table and data cluster are separated here--><Array>",
@@ -23,6 +23,11 @@ namespace DielectricConversion.Tests
                 "<U32>",
                 "<Name>Task Number</Name>",
                 "test task",
+                "test task",
+                "test task",
+                "test task",
+                "cut",
+                "cut",
                 "<Name>Task Number</Name>"
             };
 
@@ -32,13 +37,13 @@ namespace DielectricConversion.Tests
         public void DataProcessTest()
         {
             //arrange
-
+            string expected = "<Name>Task Number</Name>\ntest task\ntest task\ntest task";
 
             //act
-            dataProcess.Process(InputList);
+            var actual = dataProcess.Process(InputList);
 
             //assert
-            Assert.Fail();
+            Assert.AreEqual(expected, actual[0]);
         }
 
         [TestMethod()]
@@ -81,7 +86,7 @@ namespace DielectricConversion.Tests
             //Arrange            
             var expectedOutput = new List<int>
             {
-                8,10
+                8,15
             };
 
             //Act            
@@ -89,6 +94,7 @@ namespace DielectricConversion.Tests
 
             //Assert
             Assert.AreEqual(actual[0], expectedOutput[0]);
+            Assert.AreEqual(actual[1], expectedOutput[1]);
         }
 
         [TestMethod()]

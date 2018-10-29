@@ -22,9 +22,9 @@ namespace DielectricConversion
         {
             var taskList = new List<string>();
 
-            foreach (int split in taskSplits)
+            for(int split=0; split < taskSplits.Count-1; split++)
             {
-                string taskString = BasicOperations.Task2String(rawData, taskSplits, split);
+                string taskString = BasicOperations.Task2String(rawData, taskSplits, taskSplits[split]);
                 taskList.Add(taskString);
             }
             return taskList;

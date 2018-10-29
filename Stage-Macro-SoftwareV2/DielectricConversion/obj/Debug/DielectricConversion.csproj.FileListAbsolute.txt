@@ -15,3 +15,6 @@ C:\Users\tom2s\Documents\GitHub\Stage-macro-softwarev2\Stage-Macro-SoftwareV2\Di
 C:\Users\twar313\Documents\GitHub\Stage-macro-softwarev2\Stage-Macro-SoftwareV2\DielectricConversion\bin\Debug\Stage-Macro.Common.dll
 C:\Users\twar313\Documents\GitHub\Stage-macro-softwarev2\Stage-Macro-SoftwareV2\DielectricConversion\bin\Debug\Stage-Macro.Common.pdb
 C:\Users\twar313\Documents\GitHub\Stage-macro-softwarev2\Stage-Macro-SoftwareV2\DielectricConversion\obj\Debug\DielectricConversion.csproj.CopyComplete
+C:\Users\tom2s\Documents\GitHub\Stage-macro-softwarev2\Stage-Macro-SoftwareV2\DielectricConversion\bin\Debug\Stage-Macro.Common.dll
+C:\Users\tom2s\Documents\GitHub\Stage-macro-softwarev2\Stage-Macro-SoftwareV2\DielectricConversion\bin\Debug\Stage-Macro.Common.pdb
+C:\Users\tom2s\Documents\GitHub\Stage-macro-softwarev2\Stage-Macro-SoftwareV2\DielectricConversion\obj\Debug\DielectricConversion.csproj.CopyComplete

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DielectricConversionTests",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stage-Macro.Common", "Stage-Macro.Common\Stage-Macro.Common.csproj", "{3F5E5504-CCD4-4735-815A-94102156CFD8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stage-Macro.CommonTests", "Stage-Macro.CommonTests\Stage-Macro.CommonTests.csproj", "{638F5B71-055E-452C-9780-2A8C99E6DA9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,12 +37,17 @@ Global
 		{3F5E5504-CCD4-4735-815A-94102156CFD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F5E5504-CCD4-4735-815A-94102156CFD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F5E5504-CCD4-4735-815A-94102156CFD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{638F5B71-055E-452C-9780-2A8C99E6DA9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{638F5B71-055E-452C-9780-2A8C99E6DA9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{638F5B71-055E-452C-9780-2A8C99E6DA9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{638F5B71-055E-452C-9780-2A8C99E6DA9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3F24BB72-4A50-4370-AFCC-894D135CB678} = {67840FB8-B465-4DBF-8EC0-E54A36B36B0F}
+		{638F5B71-055E-452C-9780-2A8C99E6DA9F} = {67840FB8-B465-4DBF-8EC0-E54A36B36B0F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8C7B996C-7520-43BA-B5C4-EEDD80EF6663}

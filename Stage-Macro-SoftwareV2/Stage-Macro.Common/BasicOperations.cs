@@ -10,9 +10,9 @@ namespace Stage_Macro.Common
     {
         public static string Task2String(List<string> rawData, List<int> taskSplits, int split)
         { 
-            var task = (rawData.
-                GetRange(split, TaskLength(taskSplits, rawData.Count)));
-
+            var task = rawData.
+                GetRange(split, TaskLength(taskSplits, rawData.Count));
+            //exception means it is finished
             return string.Join("\n", task);
         }
 
