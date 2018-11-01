@@ -60,7 +60,23 @@ namespace DielectricConversion.Tests
             var actual = dataProcess.SplitTasks(InputList, taskSplits);            
 
             //Assert
-            Assert.AreEqual(actual[0], expected);
+            Assert.AreEqual(expected, actual[0]);
+        }
+
+        [TestMethod()]
+        public void SplitTasksTestNoTask()
+        {
+            //arrange
+            var taskSplits = new List<int>
+            {
+            };
+            var expected = new List<string>();
+
+            //act
+            var actual = dataProcess.SplitTasks(InputList, taskSplits);
+
+            //Assert
+            Assert.AreEqual(expected.Count, actual.Count);
         }
 
         [TestMethod()]
@@ -71,13 +87,13 @@ namespace DielectricConversion.Tests
             {
                 5,7
             };
-            string expected = "<Name>Macro Data Cluster</Name>";
 
             //act
-            var actual = dataProcess.SplitTasks(InputList, taskSplits);
+            //var actual = dataProcess.SplitTasks(InputList, taskSplits);
 
             //Assert
-            Assert.AreEqual(actual[0], expected);
+            Assert.ThrowsException<ArgumentOutOfRangeException>( () => dataProcess.SplitTasks(InputList, taskSplits));
+
         }
 
         [TestMethod()]
@@ -101,14 +117,14 @@ namespace DielectricConversion.Tests
         public void FindTaskSplitsNoTasksTest()
         {
             //Arrange
-            InputList = new List<string>
+            var InputListEmpty = new List<string>
             {
 
             };
             int expected = 0;
 
             //Act            
-            IList<int> actual = dataProcess.FindTaskSplits(InputList);
+            IList<int> actual = dataProcess.FindTaskSplits(InputListEmpty);
 
             //Assert
             Assert.AreEqual(actual.Count, expected);

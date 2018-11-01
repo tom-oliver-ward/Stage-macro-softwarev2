@@ -13,6 +13,7 @@ namespace Stage_Macro.Common
         public abstract List<int> FindTaskSplits(List<string> rawData);
         public abstract List<string> SplitTasks(List<string> rawData, List<int> taskSplits);
 
+
         public List<string> Process(List<string> rawData)
         {            
             List<int> TaskSplits = FindTaskSplits(rawData);
