@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace DielectricConversion.Tests
 {
     [TestClass()]
-    public class DataProcessTests
+    public class DataFormatTests
     {
         //out of range means either task length is too small or list is empty
         public readonly static List<string> InputList = new List<string>
