@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Stage_Macro.Common
 {
-    abstract public class DataImported
+    abstract public class DataFormat
     {           
         List<string> Tasks { get; set; }        
         

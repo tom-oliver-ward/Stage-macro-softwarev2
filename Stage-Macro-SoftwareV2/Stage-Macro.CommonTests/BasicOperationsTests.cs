@@ -41,10 +41,10 @@ namespace Stage_Macro.Common.Tests
         {
             //arrange
             string expected = "<Name>Task Number</Name>\ntest task\ntest task\ntest task";
-
+            var taskLength = 4;
 
             //act
-            var actual = BasicOperations.Task2String(InputList, TaskSplits, 8);
+            var actual = BasicOperations.Task2String(InputList, taskLength, TaskSplits[0]);
                 
 
             //assert

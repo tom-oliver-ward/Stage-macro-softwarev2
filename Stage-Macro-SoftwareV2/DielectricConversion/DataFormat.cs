@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace DielectricConversion
 {
-    public class DataProcess : DataImported
+    public class DataFormat : Stage_Macro.Common.DataFormat
     {                
         IEnumerable<string> Tasks { get; set; }
         readonly static string taskSplitString = "<Name>Task Number</Name>";
         List<string> rawDataList { get; set; }
 
-        public DataProcess(IEnumerable<string> rawData)
+        public DataFormat(IEnumerable<string> rawData)
         {
             rawDataList = rawData.ToList();
         }
@@ -21,10 +21,11 @@ namespace DielectricConversion
         public override List<string> SplitTasks(List<string> rawData, List<int> taskSplits)
         {
             var taskList = new List<string>();
+            var tasklength = BasicOperations.TaskLength(taskSplits, rawData.Count);
 
-            for(int split=0; split < taskSplits.Count-1; split++)
+            for (int split = 0; split < taskSplits.Count; split++) 
             {
-                string taskString = BasicOperations.Task2String(rawData, taskSplits, taskSplits[split]);
+                string taskString = BasicOperations.Task2String(rawData, tasklength, taskSplits[split]);
                 taskList.Add(taskString);
             }
             return taskList;

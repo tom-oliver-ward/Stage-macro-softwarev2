@@ -8,11 +8,19 @@ namespace Stage_Macro.Common
 {
     public static class BasicOperations
     {
-        public static string Task2String(List<string> rawData, List<int> taskSplits, int split)
+        public static string Task2String(List<string> rawData, int taskLength, int split)
         {
-
-                var task = rawData.
-                GetRange(split, TaskLength(taskSplits, rawData.Count));            
+            List<string> task;
+            try
+            {
+                task = rawData.GetRange(split, taskLength);
+                                
+            }
+            catch(ArgumentException)
+            {
+                task = rawData.GetRange(split, rawData.Count-split);
+            }
+                           
 
             return string.Join("\n", task);
         }

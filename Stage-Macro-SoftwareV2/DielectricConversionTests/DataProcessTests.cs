@@ -11,6 +11,7 @@ namespace DielectricConversion.Tests
     [TestClass()]
     public class DataProcessTests
     {
+        //out of range means either task length is too small or list is empty
         public readonly static List<string> InputList = new List<string>
             {
                 "Move relative (APT Y)",
@@ -28,10 +29,12 @@ namespace DielectricConversion.Tests
                 "test task",
                 "cut",
                 "cut",
-                "<Name>Task Number</Name>"
+                "<Name>Task Number</Name>",
+                "cut",
+                "cut",
             };
 
-        DataProcess dataProcess = new DataProcess(InputList);
+        DataFormat dataProcess = new DataFormat(InputList);
 
         [TestMethod()]
         public void DataProcessTest()
@@ -73,28 +76,29 @@ namespace DielectricConversion.Tests
             var expected = new List<string>();
 
             //act
-            var actual = dataProcess.SplitTasks(InputList, taskSplits);
+            //var actual = dataProcess.SplitTasks(InputList, taskSplits);
 
             //Assert
-            Assert.AreEqual(expected.Count, actual.Count);
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => dataProcess.SplitTasks(InputList, taskSplits));
         }
 
         [TestMethod()]
-        public void SplitTasksTooShortTaskTest()
+        public void SplitTasksTestOneTask()
         {
             //arrange
             var taskSplits = new List<int>
             {
-                5,7
+                8
             };
+            var expected = "<Name>Task Number</Name>\ntest task\ntest task\ntest task\ntest task\ncut\ncut";
 
             //act
-            //var actual = dataProcess.SplitTasks(InputList, taskSplits);
+            var actual = dataProcess.SplitTasks(InputList, taskSplits);
 
             //Assert
-            Assert.ThrowsException<ArgumentOutOfRangeException>( () => dataProcess.SplitTasks(InputList, taskSplits));
-
+            Assert.AreEqual(expected, actual[0]);
         }
+
 
         [TestMethod()]
         public void FindTaskSplitsTest()
@@ -111,6 +115,67 @@ namespace DielectricConversion.Tests
             //Assert
             Assert.AreEqual(actual[0], expectedOutput[0]);
             Assert.AreEqual(actual[1], expectedOutput[1]);
+        }
+
+        [TestMethod()]
+        public void FindTaskSplitsEmptyTest()
+        {
+            //Arrange
+            var InputListEmpty = new List<string>
+            {
+                "Move relative (APT Y)",
+                "<!--The table and data cluster are separated here--><Array>",
+                "<Name></Name>",
+                "<Dimsize>1</Dimsize>",
+                "<Cluster>",
+                "<Name>Macro Data Cluster</Name>",
+                "<NumElts>15</NumElts>",
+                "<U32>",
+                "<Name>Task Number</Name>",
+                "test task",
+                "test task",
+                "test task",
+                "test task",
+                "cut",
+                "cut"                
+            };
+            int expected = 8;
+
+            //Act            
+            IList<int> actual = dataProcess.FindTaskSplits(InputListEmpty);
+
+            //Assert
+            Assert.AreEqual(expected, actual[0]);
+        }
+
+        [TestMethod()]
+        public void FindTaskSplitsSingleTaskTest()
+        {
+            //Arrange
+            var InputListEmpty = new List<string>
+            {
+                "Move relative (APT Y)",
+                "<!--The table and data cluster are separated here--><Array>",
+                "<Name></Name>",
+                "<Dimsize>1</Dimsize>",
+                "<Cluster>",
+                "<Name>Macro Data Cluster</Name>",
+                "<NumElts>15</NumElts>",
+                "<U32>",
+                "test task",
+                "test task",
+                "test task",
+                "test task",
+                "cut",
+                "cut"
+            };
+            int expected = 0;
+
+            //Act            
+            IList<int> actual = dataProcess.FindTaskSplits(InputListEmpty);
+
+            //Assert
+            Assert.AreEqual(actual.Count, expected);
         }
 
         [TestMethod()]
